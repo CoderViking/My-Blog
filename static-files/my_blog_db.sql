@@ -71,8 +71,8 @@ CREATE TABLE `tb_blog` (
   `blog_views` bigint(20) NOT NULL DEFAULT '0' COMMENT '阅读量',
   `enable_comment` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0-允许评论 1-不允许评论',
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0=否 1=是',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
-  `update_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `create_time` datetime NOT NULL  COMMENT '添加时间',
+  `update_time` datetime  COMMENT '修改时间',
   PRIMARY KEY (`blog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -93,7 +93,7 @@ CREATE TABLE `tb_blog_category` (
   `category_icon` varchar(50) NOT NULL COMMENT '分类的图标',
   `category_rank` int(11) NOT NULL DEFAULT '1' COMMENT '分类的排序值 被使用的越多数值越大',
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0=否 1=是',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` datetime NOT NULL  COMMENT '创建时间',
   PRIMARY KEY (`category_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -114,10 +114,10 @@ CREATE TABLE `tb_blog_comment` (
   `email` varchar(100) NOT NULL DEFAULT '' COMMENT '评论人的邮箱',
   `website_url` varchar(50) NOT NULL DEFAULT '' COMMENT '网址',
   `comment_body` varchar(200) NOT NULL DEFAULT '' COMMENT '评论内容',
-  `comment_create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '评论提交时间',
+  `comment_create_time` datetime NOT NULL  COMMENT '评论提交时间',
   `commentator_ip` varchar(20) NOT NULL DEFAULT '' COMMENT '评论时的ip地址',
   `reply_body` varchar(200) NOT NULL DEFAULT '' COMMENT '回复内容',
-  `reply_create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '回复时间',
+  `reply_create_time` datetime NOT NULL  COMMENT '回复时间',
   `comment_status` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否审核通过 0-未审核 1-审核通过',
   `is_deleted` tinyint(4) DEFAULT '0' COMMENT '是否删除 0-未删除 1-已删除',
   PRIMARY KEY (`comment_id`)
@@ -135,7 +135,7 @@ CREATE TABLE `tb_blog_tag` (
   `tag_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '标签表主键id',
   `tag_name` varchar(100) NOT NULL COMMENT '标签名称',
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0=否 1=是',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `create_time` datetime NOT NULL  COMMENT '创建时间',
   PRIMARY KEY (`tag_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -162,7 +162,7 @@ CREATE TABLE `tb_blog_tag_relation` (
   `relation_id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '关系表id',
   `blog_id` bigint(20) NOT NULL COMMENT '博客id',
   `tag_id` int(11) NOT NULL COMMENT '标签id',
-  `create_time` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  `create_time` datetime  COMMENT '添加时间',
   PRIMARY KEY (`relation_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -188,8 +188,8 @@ DROP TABLE IF EXISTS `tb_config`;
 CREATE TABLE `tb_config` (
   `config_name` varchar(100) NOT NULL DEFAULT '' COMMENT '配置项的名称',
   `config_value` varchar(200) NOT NULL DEFAULT '' COMMENT '配置项的值',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '修改时间',
+  `create_time` datetime NOT NULL  COMMENT '创建时间',
+  `update_time` datetime NOT NULL  COMMENT '修改时间',
   PRIMARY KEY (`config_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -220,7 +220,7 @@ CREATE TABLE `tb_link` (
   `link_description` varchar(100) NOT NULL COMMENT '网站描述',
   `link_rank` int(11) NOT NULL DEFAULT '0' COMMENT '用于列表排序',
   `is_deleted` tinyint(4) NOT NULL DEFAULT '0' COMMENT '是否删除 0-未删除 1-已删除',
-  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  `create_time` datetime NOT NULL  COMMENT '添加时间',
   PRIMARY KEY (`link_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
